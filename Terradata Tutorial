@@ -1,0 +1,96 @@
+What is Teradata ?
+-----------------
+History of Teradata ?
+---------------------------
+1.1979-Terradata was incorporated
+2.1999-Largest database in the world using Teradata with 130 Terabytes.
+3.2008-Teradata 13.0 released with Active Data Warehousing.
+4.2012-Teardata 14.0 introduced.
+5.2014-Teradata 15.0 intriduced.
+6.2016-Teradata 16.0 introduced.
+3.How is Teradata different from other databases?
+-------------------------------------------------
+* Parallelism-MIT Architecture
+* Shared Nothing Architecture -Each component in TD works independently
+* Linear Scalability -Teradata systems are highly scalable.They can scale up to 2018 Nodes
+* Connectivity-eraddta can conncet to Channel attched system such as Mainframe or Network Attached system
+* Mature Optimizer-Parallel optimizer
+* SQl -ANSI
+* Robust Utilities
+* Automatic distributions
+4.Utilities avilable in Teradta
+-------------------------------------
+* To import/Export data from /to Teradata system
+* Fast Load
+* Multi Load
+* Tpump
+* Fast export
+* TPT(Teradata parallel Transport)
+5.Important key words in TD
+7.
+------------------------------
+MPP - Massive parallel Processing
+AMP - Access Module Processor
+PE - Parsing engine
+SMP - Symmetric Multi Processing
+BYNET - Hign speed interconnect Network
+BTEQ - Basic Teradta Query
+6.Teradta Architecture - Virual Processor(VPROC)
+------------------------------------------------
+> VPROC is the basic unit of parallelism.
+> A single SMP /node is made up of multiple VPROCS.
+> Each VPROC users a portion of the physical processor resources,
+and space from memory pool in order to carry out the tasks.
+> Each VPROC runs independently of others VPROC.
+> PE(parsing Engine) and AMP (Access module procesor)are two major software components of a VPROC.
+7.Teradata Archicture - parsing Engine(PE)
+---------------------------------------------
+* PE is a part of Vitual Processor(Vproc),
+which acts as a communicator between the client system and AMP via BYNET.
+* PE's tasks include:
+    @ Session control(E.g.logon,authentication, and logoff).
+    @ SQL parsing & error handling
+    @ Generating execution plan
+    @ Dispatching result set to client 
+    @ Returning result set to client
+* Above mentioned tasks are done in parallel for multiple clients.
+8.Teradata Architecture - AMP
+-------------------------------
+* Amp, acronym for "Access Module Processor," is a VPROC component ,
+which is userd to manage the database,handle file tasks and manipulate the disk in 
+multi-tasking and parallel-processing environment.
+* AMP's tasks include:
+    @ Act as an interface to BYNET
+    @ Database management activities:
+        1.Locking
+        2.Joining
+        3.Sorting
+        4.Aggregation
+        5.Output data conversion
+        6.Disk space management
+        7.Journaling
+* File sub-system management
+9.Teradata Architecture _ PDE 
+------------------------------------
+* PDE, acronym for "Parllel Database Extension",is a software 
+,which provides API's for various OS to interact with Teradata.
+10.Teradata - Primary Index(PI)
+--------------------------------------
+# what is PI and it`s Significance :
+  * Aprimary index (PI)is the physical mechnisam for assigning to an AMP and a location on the AMPs disks.
+  * PI is also used to access rows without having to search the entire table.
+  * The PI is the only way for the system determine where a row will be physical stored.
+  * The columns which makes the PI for a table are specified when the table is physically created.
+  * Choosing a primary index for a table is perhaps the most
+    critical decision a database designer makes.Because this choice affects both data distribution and access.
+  * Even if you do not define a PI in the CREATE TABLE statement .
+    The TERADATA system will take the very first column to be the PI of that table.
+# PI Rules
+------------
+  * Rule 1:One Primary index per table. 
+  * Rule 2:A primary index value can be unique or non-unique.
+  * Rule 3:The primary index value can be null.
+  * Rule 4:The primary index of a populated table cannot be modified.
+  * Rule 5:The primary index value can be modified.
+  * Rule 6:A primary index has a limit of 64 Columns.
+   
